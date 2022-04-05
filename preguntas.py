@@ -79,7 +79,35 @@ def pregunta_03():
     ]
 
     """
-    return
+
+    import operator
+
+    with open('data.csv', 'r') as file:  
+        lines=file.readlines()
+
+    letras = [row[0] for row in lines]
+    nums = [int(row[2]) for row in lines]
+
+
+    pos=0
+
+    salida = {}
+    for letra in letras:
+        
+        if letra in salida.keys():
+            salida[letra] = salida[letra] + nums[pos]
+            
+            
+        else:
+            salida[letra] = nums[pos]
+        pos+=1
+        
+
+
+    tuplas = [(v, k) for v,k in salida.items()]
+    tuplas = sorted(tuplas, key=operator.itemgetter(0), reverse=False)
+
+    return tuplas
 
 
 def pregunta_04():
