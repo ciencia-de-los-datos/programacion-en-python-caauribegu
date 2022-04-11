@@ -209,11 +209,13 @@ def pregunta_05():
     for k,v in salida.items():
         for k2,v2 in salida_min.items():
             if k==k2:
-                salida_final[k]=(k,v,v2)
+                salida_final[k]=(k,int(v),int(v2))
 
     tuplas = [v for v in salida_final.values()]
 
     tuplas = sorted(tuplas, key=operator.itemgetter(0), reverse=False)
+
+    print(tuplas)
 
 
     return tuplas
