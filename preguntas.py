@@ -173,7 +173,50 @@ def pregunta_05():
     ]
 
     """
-    return
+
+    import operator
+
+    with open('data.csv', 'r') as file:  
+        lines=file.readlines()
+
+    lines=[x.split('\t')for x in lines]
+
+    letras=[ (x[0], x[1]) for x in lines]
+
+
+    salida={}
+    for letra,valor in letras:
+
+        if letra in salida.keys():
+            if salida[letra] < valor:
+                salida[letra]=valor
+        else:
+                salida[letra]=valor
+
+    salida_min={}
+    for letra,valor in letras:
+
+        if letra in salida_min.keys():
+            if valor < salida_min[letra]:
+                salida_min[letra]=valor
+    
+        else:
+                salida_min[letra]=valor
+
+
+    salida_final={}
+    lista=[]
+    for k,v in salida.items():
+        for k2,v2 in salida_min.items():
+            if k==k2:
+                salida_final[k]=(k,v,v2)
+
+    tuplas = [v for v in salida_final.values()]
+
+    tuplas = sorted(tuplas, key=operator.itemgetter(0), reverse=False)
+
+
+    return tuplas
 
 
 def pregunta_06():
