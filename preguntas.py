@@ -126,13 +126,36 @@ def pregunta_04():
         ("07", 5),
         ("08", 6),
         ("09", 3),
-        ("10", 2),
+        ("10", 2),  
         ("11", 2),
         ("12", 3),
     ]
 
     """
-    return
+    import operator
+
+    with open('data.csv', 'r') as file:  
+        lines=file.readlines()
+
+    lines=[x.split('\t')for x in lines]
+
+    fecha=[fechas[2].split('-')[1] for fechas in lines]
+
+    num_mes={}
+    for mes in fecha:
+        if mes in num_mes.keys():
+            num_mes[mes]=num_mes[mes] + 1
+        else:
+            num_mes[mes]=1
+
+
+
+    tuplas = [(v, k) for v,k in num_mes.items()]
+    tuplas = sorted(tuplas, key=operator.itemgetter(0), reverse=False)
+
+
+
+    return tuplas
 
 
 def pregunta_05():
