@@ -243,7 +243,24 @@ def pregunta_06():
     ]
 
     """
-    return
+    lista = []
+    for a in [i[4].split(',') for i in x]:
+        lista.extend(a)
+    diccionario = {}
+    for b in lista:
+        clave = b.split(':')[0]
+        valor = b.split(':')[1]
+        if clave in diccionario.keys():
+            diccionario[clave].append(int(valor))
+        else:
+            diccionario[clave] = [int(valor)]
+
+    resultado = [(clave, min(diccionario[clave]), max(diccionario[clave])) for clave in diccionario.keys()]
+    sorted(resultado, key=lambda tup: tup[0])
+
+
+
+    return resultado
 
 
 def pregunta_07():
