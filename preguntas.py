@@ -263,12 +263,9 @@ def pregunta_06():
 
     resultado = [(clave, min(diccionario[clave]), max(diccionario[clave])) for clave in diccionario.keys()]
     sorted(resultado, key=lambda tup: tup[0])
-
-
-
     return resultado
 
-print(pregunta_06())
+
 def pregunta_07():
     """
     Retorne una lista de tuplas que asocien las columnas 0 y 1. Cada tupla contiene un
