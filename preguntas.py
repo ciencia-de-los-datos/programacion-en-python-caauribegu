@@ -263,6 +263,7 @@ def pregunta_06():
 
     resultado = [(clave, min(diccionario[clave]), max(diccionario[clave])) for clave in diccionario.keys()]
     resultado=sorted(resultado, key=lambda tup: tup[0])
+    resultado
     
     return resultado
 
