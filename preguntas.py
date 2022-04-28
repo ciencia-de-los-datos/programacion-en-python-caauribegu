@@ -243,6 +243,12 @@ def pregunta_06():
     ]
 
     """
+    import pandas as pd
+    pd.read_csv('data.csv', sep = '\t', header=None)
+    x = open('data.csv', 'r').readlines()
+    x = [i.replace('\n', '') for i in x]
+    x = [i.split('\t') for i in x]
+
     lista = []
     for a in [i[4].split(',') for i in x]:
         lista.extend(a)
@@ -262,7 +268,7 @@ def pregunta_06():
 
     return resultado
 
-
+print(pregunta_06())
 def pregunta_07():
     """
     Retorne una lista de tuplas que asocien las columnas 0 y 1. Cada tupla contiene un
