@@ -243,8 +243,8 @@ def pregunta_06():
     ]
 
     """
-    import pandas as pd
-    pd.read_csv('data.csv', sep = '\t', header=None)
+    
+    
     x = open('data.csv', 'r').readlines()
     x = [i.replace('\n', '') for i in x]
     x = [i.split('\t') for i in x]
