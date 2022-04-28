@@ -126,13 +126,36 @@ def pregunta_04():
         ("07", 5),
         ("08", 6),
         ("09", 3),
-        ("10", 2),
+        ("10", 2),  
         ("11", 2),
         ("12", 3),
     ]
 
     """
-    return
+    import operator
+
+    with open('data.csv', 'r') as file:  
+        lines=file.readlines()
+
+    lines=[x.split('\t')for x in lines]
+
+    fecha=[fechas[2].split('-')[1] for fechas in lines]
+
+    num_mes={}
+    for mes in fecha:
+        if mes in num_mes.keys():
+            num_mes[mes]=num_mes[mes] + 1
+        else:
+            num_mes[mes]=1
+
+
+
+    tuplas = [(v, k) for v,k in num_mes.items()]
+    tuplas = sorted(tuplas, key=operator.itemgetter(0), reverse=False)
+
+
+
+    return tuplas
 
 
 def pregunta_05():
@@ -150,7 +173,52 @@ def pregunta_05():
     ]
 
     """
-    return
+
+    import operator
+
+    with open('data.csv', 'r') as file:  
+        lines=file.readlines()
+
+    lines=[x.split('\t')for x in lines]
+
+    letras=[ (x[0], x[1]) for x in lines]
+
+
+    salida={}
+    for letra,valor in letras:
+
+        if letra in salida.keys():
+            if salida[letra] < valor:
+                salida[letra]=valor
+        else:
+                salida[letra]=valor
+
+    salida_min={}
+    for letra,valor in letras:
+
+        if letra in salida_min.keys():
+            if valor < salida_min[letra]:
+                salida_min[letra]=valor
+    
+        else:
+                salida_min[letra]=valor
+
+
+    salida_final={}
+    lista=[]
+    for k,v in salida.items():
+        for k2,v2 in salida_min.items():
+            if k==k2:
+                salida_final[k]=(k,int(v),int(v2))
+
+    tuplas = [v for v in salida_final.values()]
+
+    tuplas = sorted(tuplas, key=operator.itemgetter(0), reverse=False)
+
+    print(tuplas)
+
+
+    return tuplas
 
 
 def pregunta_06():
@@ -307,4 +375,3 @@ def pregunta_12():
     }
 
     """
-    return
