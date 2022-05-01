@@ -387,7 +387,7 @@ def pregunta_09():
 
     resultado = dict(list(diccionario.items()))
     return resultado
-print(pregunta_09())
+
 
 def pregunta_10():
     """
