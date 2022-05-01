@@ -368,7 +368,22 @@ def pregunta_09():
     }
 
     """
-    return
+    lista = []
+    for a in [i[4].split(',') for i in x]:
+        lista.extend(a)
+
+    diccionario = {}
+
+    for b in sorted(lista):
+        clave = b.split(':')[0]
+        valor = b.split(':')[1]
+        if clave in diccionario.keys():
+            diccionario[clave] = diccionario[clave] + 1
+        else:
+            diccionario[clave] = 1
+
+    resultado = dict(list(diccionario.items()))
+    return resultado
 
 
 def pregunta_10():
