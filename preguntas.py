@@ -301,13 +301,9 @@ def pregunta_07():
             diccionario[clave].append(i[0])
         else:
             diccionario[clave] = [i[0]]
-
     lista = sorted(list(diccionario.items()))
-    lista
-
-
-
-    return
+    
+    return lista 
 
 
 def pregunta_08():
