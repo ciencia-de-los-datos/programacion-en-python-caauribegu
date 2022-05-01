@@ -470,3 +470,25 @@ def pregunta_12():
     }
 
     """
+    import operator
+
+    with open('data.csv', 'r') as file:  
+        data=file.readlines()
+    data = [row.replace('\n', '') for row in data]
+    data = [row.split("\t") for row in data]
+
+    data_values = [[row[0], row[4].split(",")] for row in data]
+    data_values = [[row[0],dl.split(":")[1]] for row in data_values for dl in row[1]]
+
+    data_sum_letters = dict()
+    for letra, valornum in data_values:
+        if letra in data_sum_letters.keys():
+            data_sum_letters[letra] = data_sum_letters[letra] + int(valornum)
+        else:
+            data_sum_letters[letra] = int(valornum)
+            
+    tuplas = [(k, v) for k,v in data_sum_letters.items()]
+    tuplas = sorted(tuplas, key=operator.itemgetter(0), reverse=False)
+    dict_tuplas = dict(tuplas)
+
+    return dict_tuplas
