@@ -342,9 +342,9 @@ def pregunta_08():
         
     resultado = sorted(list(diccionario.items()))
     resultado = [(b[0], sorted(list(set(b[1])))) for b in resultado]
-    resultado
+    
 
-    return
+    return resultado
 
 
 def pregunta_09():
