@@ -407,7 +407,12 @@ def pregunta_10():
 
 
     """
-    return
+    data = [row.split("\t") for row in data]
+    data_letters = [(row[0], len(row[3].split(',')), len(row[4].split(','))) for row in data]
+
+
+    
+    return data_letters
 
 
 def pregunta_11():
