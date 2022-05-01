@@ -328,6 +328,22 @@ def pregunta_08():
     ]
 
     """
+    x = open('data.csv', 'r').readlines()
+    x = [i.replace('\n', '') for i in x]
+    x = [i.split('\t') for i in x]
+
+    diccionario = {}
+    for i in x:
+        clave = int(i[1])
+        if clave in diccionario.keys():
+            diccionario[clave].append(i[0])
+        else: 
+            diccionario[clave] = [i[0]]
+        
+    resultado = sorted(list(diccionario.items()))
+    resultado = [(b[0], sorted(list(set(b[1])))) for b in resultado]
+    resultado
+
     return
 
 
