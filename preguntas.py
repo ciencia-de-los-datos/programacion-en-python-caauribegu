@@ -306,6 +306,7 @@ def pregunta_07():
     return lista 
 
 
+
 def pregunta_08():
     """
     Genere una lista de tuplas, donde el primer elemento de cada tupla contiene  el valor
@@ -346,7 +347,7 @@ def pregunta_08():
 
     return resultado
 
-
+\
 def pregunta_09():
     """
     Retorne un diccionario que contenga la cantidad de registros en que aparece cada
