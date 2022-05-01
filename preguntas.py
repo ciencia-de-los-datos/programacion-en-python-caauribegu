@@ -368,6 +368,9 @@ def pregunta_09():
     }
 
     """
+    x = open('data.csv', 'r').readlines()
+    x = [i.replace('\n', '') for i in x]
+    x = [i.split('\t') for i in x]
     lista = []
     for a in [i[4].split(',') for i in x]:
         lista.extend(a)
@@ -384,7 +387,7 @@ def pregunta_09():
 
     resultado = dict(list(diccionario.items()))
     return resultado
-
+print(pregunta_09())
 
 def pregunta_10():
     """
